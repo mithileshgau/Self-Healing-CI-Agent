@@ -9,6 +9,10 @@ CI Analyser Agent is an autonomous CI analysis agent built with LangGraph and Ge
 - **GitHub-Native**: Operates directly against the GitHub API; no local clone of the target repository is required.
 - **Commit Feedback**: Automatically posts analysis results and suggested fixes as comments on the specific commit that triggered the failure.
 
+![CI Analyser Agent Example Output](./CI-Agent-Analysis.png)
+
+*Example of the CI Analyser Agent automatically identifying a logic bug and proposing a fix directly on the failed commit.*
+
 ## Architecture
 The agent uses a simplified LangGraph flow:
 1. `analyze`: Fetches logs, extracts the error session, and performs a deep analysis using Gemini 2.5 Flash-Lite.
