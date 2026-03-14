@@ -1,6 +1,6 @@
 """
-PatchPilot: Webhook Receiver
-----------------------------
+CI Analyser Agent: Webhook Receiver
+----------------------------------
 FastAPI server that listens for GitHub Action failures and triggers
 the analysis agent.
 """
@@ -10,7 +10,7 @@ import uvicorn
 import os
 import asyncio
 
-app = FastAPI(title="PatchPilot Analysis Receiver")
+app = FastAPI(title="CI Analyser Agent Receiver")
 
 # Compile the graph once
 agent = build_graph()
@@ -32,7 +32,7 @@ async def run_patch_pilot(repo_name: str, run_id: str, head_sha: str):
         "test_output": ""
     }
     
-    print(f"\n🚀 Starting PatchPilot Analysis for {repo_name} (Run: {run_id})")
+    print(f"\n🚀 Starting CI Analyser Agent for {repo_name} (Run: {run_id})")
     async for output in agent.astream(initial_state):
         for key, value in output.items():
             status = value.get('status')

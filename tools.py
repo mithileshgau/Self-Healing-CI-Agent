@@ -1,6 +1,6 @@
 """
-PatchPilot: Shared Tools & Utilities
-------------------------------------
+CI Analyser Agent: Shared Tools & Utilities
+-------------------------------------------
 Contains helper functions for interacting with GitHub APIs,
 reading from the local filesystem, and running shell commands.
 """

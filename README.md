@@ -1,6 +1,6 @@
-# PatchPilot: CI Failure Analyzer
+# CI Analyser Agent
 
-PatchPilot is an autonomous CI analysis agent built with LangGraph and Gemini. It automatically responds to failed GitHub Action runs, analyzes technical logs, and identifies whether the root cause is a code bug, a broken test, or an environment configuration issue.
+CI Analyser Agent is an autonomous CI analysis agent built with LangGraph and Gemini. It automatically responds to failed GitHub Action runs, analyzes technical logs, and identifies whether the root cause is a code bug, a broken test, or an environment configuration issue.
 
 ## Features
 - **Deep Log Analysis**: Ingests thousands of lines of raw GitHub Action logs to pinpoint exactly what failed.
@@ -14,6 +14,12 @@ The agent uses a simplified LangGraph flow:
 1. `analyze`: Fetches logs, extracts the error session, and performs a deep analysis using Gemini 2.5 Flash-Lite.
 
 ## Setup
+
+### 0. Clone the Repository
+```bash
+git clone https://github.com/mithileshgau/CI-Analyser-Agent.git
+cd CI-Analyser-Agent
+```
 
 ### 1. Set Up Virtual Environment
 ```bash
@@ -56,4 +62,4 @@ Since PatchPilot runs on `localhost`, GitHub cannot reach it directly. You need 
    - **Events**: Select `Workflow runs`.
 
 ## How it works
-The agent exposes a `/webhook` endpoint locally. Configure your GitHub repository to send `workflow_run.completed` events to this endpoint (via your ngrok URL). When a CI run fails, GitHub sends a webhook to your local machine. PatchPilot catches it, runs the LangGraph logic using Gemini to analyze the logs and generate a fix, and then posts the entire analysis as a comment directly on the failed commit.
+The agent exposes a `/webhook` endpoint locally. Configure your GitHub repository to send `workflow_run.completed` events to this endpoint (via your ngrok URL). When a CI run fails, GitHub sends a webhook to your local machine. CI Analyser Agent catches it, runs the LangGraph logic using Gemini to analyze the logs and generate a fix, and then posts the entire analysis as a comment directly on the failed commit.

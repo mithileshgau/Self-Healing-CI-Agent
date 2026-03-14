@@ -1,6 +1,6 @@
 """
-PatchPilot: CI Failure Analyzer
--------------------------------
+CI Analyser Agent: CI Failure Analyzer
+--------------------------------------
 This script uses LangGraph and Gemini to analyze GitHub Action failure logs
 and categorize the root cause (Code, Test, Environment, or Flaky).
 """
@@ -168,14 +168,14 @@ async def comment_exporter_node(state: CIState) -> CIState:
     print("---POSTING GITHUB COMMENT---")
     
     comment_body = f"""
-### 🚀 PatchPilot Analysis Results
+### 🚀 CI Analyser Agent Results
 **Root Cause Summary:** {state['error_summary']}
 **Target File:** `{state['target_file']}`
 
 **Suggested Fix:**
 {state['logic_fix']}
 
-*This analysis was generated automatically by PatchPilot.*
+*This analysis was generated automatically by CI Analyser Agent.*
 """
     
     result = post_commit_comment(state["repo_name"], state["head_sha"], comment_body)
