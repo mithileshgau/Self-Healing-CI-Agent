@@ -48,7 +48,7 @@ python main.py
 ```
 
 ## Local Development (Tunneling)
-Since PatchPilot runs on `localhost`, GitHub cannot reach it directly. You need to expose your local port using a tunneling service like **ngrok**:
+Since Agent runs on `localhost`, GitHub cannot reach it directly. You need to expose your local port using a tunneling service like **ngrok**:
 
 1. [Install ngrok](https://ngrok.com/download).
 2. Start a tunnel to your local port (default 8000):
